@@ -75,4 +75,7 @@ dependencies {
     api(libs.koin.core)
     api(libs.koin.android)
     api(libs.koin.compose)
+
+    //DataStore
+    api(libs.androidx.datastore.preferences)
 }
