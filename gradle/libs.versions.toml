@@ -1,5 +1,6 @@
 [versions]
 agp = "8.9.2"
+converterGson = "2.11.0"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -8,6 +9,8 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.1"
 activityCompose = "1.10.1"
 composeBom = "2024.09.00"
+retrofit = "2.11.0"
+workRuntimeKtx = "2.10.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +28,27 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+
+# WorkManager
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+
+# Room
+room-runtime = { group = "androidx.room", name = "room-runtime", version = "2.7.1" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version = "2.7.1" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version = "2.7.1" }
+room-paging = { group = "androidx.room", name = "room-paging", version = "2.7.1" }
+
+# Koin для DI
+koin-core = { group = "io.insert-koin", name = "koin-core", version = "3.5.6" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version = "3.5.6" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version = "3.5.6" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.26" }
 
