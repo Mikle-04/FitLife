@@ -59,17 +59,17 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Retrofit + Gson
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
+    api(libs.retrofit)
+    api(libs.converter.gson)
 
     // Room
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    implementation(libs.room.paging)
+    api(libs.room.runtime)
+    api(libs.room.ktx)
+    api(libs.room.paging)
     ksp(libs.room.compiler)
 
     // WorkManager
-    implementation(libs.androidx.work.runtime.ktx)
+    api(libs.androidx.work.runtime.ktx)
 
     // Koin (DI)
     api(libs.koin.core)
