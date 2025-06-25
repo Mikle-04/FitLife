@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fitlifecoach"
+    namespace = "com.example.core"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.fitlifecoach"
+        applicationId = "com.example.core"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -57,4 +57,22 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Retrofit + Gson
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+
+    // Koin (DI)
+    api(libs.koin.core)
+    api(libs.koin.android)
+    api(libs.koin.compose)
 }

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fitlifecoach"
+    namespace = "com.example.feature_nutrition"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.fitlifecoach"
+        applicationId = "com.example.feature_nutrition"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "FitLife Coach"
 include(":app")
- 
+include(":core")
+include(":feature-auth")
+include(":feature-workouts")
+include(":feature-nutrition")
