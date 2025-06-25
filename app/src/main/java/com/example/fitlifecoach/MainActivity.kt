@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import com.example.feature_auth.presentation.navigation.AuthRoutes
+import com.example.feature_auth.presentation.navigation.authGraph
 import com.example.fitlifecoach.ui.theme.FitLifeCoachTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +23,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FitLifeCoachTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = AuthRoutes.Login
+                ) {
+                    authGraph(
+                        navController,
+                        onAuthSuccess ={ navController.navigate("workouts/list") {
+                            popUpTo(AuthRoutes.Login) { inclusive = true }
+                        }})
+                        //  workoutsGraph(navController)
+                    //nutritionGraph(navController)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FitLifeCoachTheme {
-        Greeting("Android")
-    }
-}
