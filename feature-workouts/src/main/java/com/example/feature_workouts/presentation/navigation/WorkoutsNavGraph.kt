@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.feature_workouts.presentation.WorkoutsViewModel
+import com.example.feature_workouts.ui.Screens.WorkoutDetailScreen
+import com.example.feature_workouts.ui.Screens.WorkoutsListScreen
 import org.koin.androidx.compose.koinViewModel
 
 /** Расширение для подключения графа тренировок в NavHost */
