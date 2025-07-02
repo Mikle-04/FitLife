@@ -14,7 +14,7 @@ class FitLifeApplication : Application() {
         super.onCreate()
         startKoin{
             androidContext(this@FitLifeApplication)
-            modules(listOf(coreModule, authModule, workoutsModule, nutritionModule, appModule))
+            modules(listOf(coreModule, appModule, authModule, workoutsModule, nutritionModule))
 
         }
     }

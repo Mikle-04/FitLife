@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.feature_auth.presentation.navigation.AuthRoutes
 import com.example.feature_auth.presentation.navigation.authGraph
+import com.example.feature_nutrition.presentation.navigation.nutritionGraph
+import com.example.feature_workouts.presentation.navigation.workoutsGraph
 import com.example.fitlifecoach.ui.theme.FitLifeCoachTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,8 +28,8 @@ class MainActivity : ComponentActivity() {
                         onAuthSuccess ={ navController.navigate("workouts/list") {
                             popUpTo(AuthRoutes.Login) { inclusive = true }
                         }})
-                        //  workoutsGraph(navController)
-                    //nutritionGraph(navController)
+                        workoutsGraph(navController)
+                        nutritionGraph(navController)
                 }
             }
         }
