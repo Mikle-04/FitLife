@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.example.feature_nutrition.data.db.MealEntryDao
 import com.example.feature_nutrition.data.db.NutritionDatabase
 import com.example.feature_nutrition.data.remote.NutritionApi
+import com.example.feature_nutrition.data.repository.FakeNutritionRepository
 import com.example.feature_nutrition.data.repository.NutritionRepositoryImpl
 import com.example.feature_nutrition.domain.models.repository.NutritionRepository
 import com.example.feature_nutrition.presentation.NutritionViewModel
@@ -31,11 +32,7 @@ val nutritionModule = module {
     }
 
     single<NutritionRepository> {
-        NutritionRepositoryImpl(
-            api          = get(),
-            dao          = get(),
-            ioDispatcher = get(named("IO"))
-        )
+        FakeNutritionRepository()
     }
 
     // 5) MVI-ViewModel для экрана питания

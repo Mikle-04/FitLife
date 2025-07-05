@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.example.feature_workouts.data.local.WorkoutDao
 import com.example.feature_workouts.data.local.WorkoutDatabase
 import com.example.feature_workouts.data.remote.WorkoutApi
+import com.example.feature_workouts.data.repository.FakeWorkoutsRepository
 import com.example.feature_workouts.data.repository.WorkoutsRepositoryImpl
 import com.example.feature_workouts.domain.repository.WorkoutsRepository
 import com.example.feature_workouts.presentation.WorkoutsViewModel
@@ -29,12 +30,17 @@ val workoutsModule = module{
         get<WorkoutDatabase>().workoutDao()
     }
 
+//    single<WorkoutsRepository> {
+//        WorkoutsRepositoryImpl(
+//            api           = get(),              // WorkoutApi
+//            dao           = get(),              // WorkoutDao
+//            ioDispatcher  = get(named("IO"))    // io-диспетчер из appModule
+//        )
+//    }
+
+    //Фейковый репозиторий
     single<WorkoutsRepository> {
-        WorkoutsRepositoryImpl(
-            api           = get(),              // WorkoutApi
-            dao           = get(),              // WorkoutDao
-            ioDispatcher  = get(named("IO"))    // io-диспетчер из appModule
-        )
+        FakeWorkoutsRepository()
     }
 
     viewModel {

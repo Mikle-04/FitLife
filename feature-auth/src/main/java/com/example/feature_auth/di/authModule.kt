@@ -3,6 +3,7 @@ package com.example.feature_auth.di
 import com.example.feature_auth.data.local.TokenStorage
 import com.example.feature_auth.data.remote.AuthApi
 import com.example.feature_auth.data.repository.AuthRepositoryImpl
+import com.example.feature_auth.data.repository.FakeAuthRepository
 import com.example.feature_auth.domain.repository.AuthRepository
 import com.example.feature_auth.presentation.AuthViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -18,12 +19,16 @@ val authModule = module{
 
     single { TokenStorage(ds = get()) }
 
+//    single<AuthRepository> {
+//        AuthRepositoryImpl(
+//            api         = get(),
+//            storage     = get(),
+//            ioDispatcher= get(named("IO"))
+//        )
+//    }
+    //Фейковый репозиторий
     single<AuthRepository> {
-        AuthRepositoryImpl(
-            api         = get(),
-            storage     = get(),
-            ioDispatcher= get(named("IO"))
-        )
+        FakeAuthRepository()
     }
 
     viewModel {
